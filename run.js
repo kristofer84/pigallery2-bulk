@@ -2,6 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
+const { list } = require('./list');
 
 const arr = JSON.parse(fs.readFileSync('./config.json'));
 
@@ -46,11 +47,11 @@ async function go() {
 }
 
 async function run(set, i) {
-  const filer = fs.readFileSync(set[0]).toString().split('\n').filter(s => s.trim() !== '');
-  from = set[1];
-  to = set[2];
-  const filename = set[0].split('\\').pop().split('/').pop().replace('.txt', '');
-  console.log('Processing ' + filename);
+  console.log('Processing ' + set[0]);
+  const filer = await list(set[0]);
+
+  from = set[0];
+  to = set[1];
 
   let j = 0;
   for (const file of filer) {
