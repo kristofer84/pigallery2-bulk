@@ -82,7 +82,7 @@ async function convert(file, num) {
       mediaPath: file,
     }
 
-    input.outPath = `${input.mediaPath}_${input.size}q${input.quality}.webp`
+    input.outPath = `${input.mediaPath}_${input.size}q${input.quality}cs.webp`
     input.outPath = input.outPath.replace(from, to)
 
     const outFolder = path.dirname(input.outPath);
@@ -106,7 +106,12 @@ async function worker() {
   while (true) {
     if (queue.length > 0) {
       const [input, buffer] = queue.shift();
+try {
       await resize(input, buffer);
+} catch(err) {
+console.log(err)
+console.log(input)
+}
     }
     else {
       await delay(500);
@@ -130,5 +135,6 @@ async function resize(input, buffer) {
       kernel,
     });
   }
-  await image.rotate().webp({ effort: 6, quality: input.quality }).toFile(input.outPath);
+  await image.rotate().webp({ effort: 6, quality: input.quality, chromaSubsampling: '4:2:0' }).toFile(input.outPath);
 }
+

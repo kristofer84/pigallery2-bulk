@@ -1,3 +1,8 @@
 [
-  ["/src/", "/dest/"]
+  ["/mnt/remote/cloud/onedrive/Pictures/Kamerabilder/", "/mnt/readynas/other/pigallery2/tmp/tc/kamerabilder/"],
+  ["/mnt/remote/cloud/onedrive/Kristykke/Bilder/", "/mnt/readynas/other/pigallery2/tmp/tc/kristykke/"],
+  ["/mnt/readynas/other/bilder/scannat/", "/mnt/readynas/other/pigallery2/tmp/tc/scannat/"],
+  ["/mnt/remote/cloud/onedrive/Pictures/sorterat/", "/mnt/readynas/other/pigallery2/tmp/tc/sorterat/"],
+  ["/mnt/remote/cloud/onedrive/Pictures/bakgrundsbilder/", "/mnt/readynas/other/pigallery2/tmp/tc/bakgrundsbilder/"],
+  ["/mnt/remote/cloud/onedrive/Pictures/osorterat/", "/mnt/readynas/other/pigallery2/tmp/tc/osorterat/"]
 ]
